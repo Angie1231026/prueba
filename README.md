@@ -30,12 +30,13 @@ REFERENCES producto(id)
 Consultas
 
 Stock
+
 SELECT id FROM producto WHERE id = @id ) UPDATE producto SET stock = stock - @cantidad WHERE id = @id
 
 Mayor cantidad en stock
+
 SELECT nombre, MAX(stock) edad FROM producto GROUP BY nombre
 
 Más vendido
-SELECT producto.nombre, SUM(venta.cantidad) as cantidad FROM ventas JOIN producto ON venta.id_producto = producto.id "
-		+ "GROUP BY producto.id "
-		+ "ORDER BY SUM(venta.cantidad) DESC LIMIT 1
+
+SELECT producto.nombre, SUM(venta.cantidad) as cantidad FROM ventas JOIN producto ON venta.id_producto = producto.id GROUP BY producto.id ORDER BY SUM(venta.cantidad) DESC LIMIT 1
